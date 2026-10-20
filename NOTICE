@@ -1,0 +1,9 @@
+R Statistical Analysis companion, version 0.2.0
+Derived from original R-ebirth companion skill and integration tools.
+Copyright (c) 2026 Alessandro Vadala.
+Source reference: R-ebirth commit a827368485d530f0f384b9065019f1375023ec19.
+Original and derived code is offered under MIT OR Apache-2.0.
+Original license and copyright notices are retained in the skill payload.
+Changes include required-artifact validation, capability-checked headless demo,
+synthetic demo data, regression cases and standalone user documentation.
+This distribution is not the relm/R-ebirth package. No endorsement is implied.
