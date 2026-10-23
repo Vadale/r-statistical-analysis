@@ -2,7 +2,7 @@
 
 ![R Statistical Analysis: statistical questions become estimates, uncertainty, diagnostics, plots and reproducible code.](assets/hero.svg)
 
-[Checks](https://github.com/Vadale/r-statistical-analysis/actions) · [Download](https://github.com/Vadale/r-statistical-analysis/releases) · [MIT](LICENSE-MIT) / [Apache 2.0](LICENSE-APACHE)
+[Checks](https://github.com/Vadale/r-statistical-analysis-skill/actions) · [Download](https://github.com/Vadale/r-statistical-analysis-skill/releases) · [MIT](LICENSE-MIT) / [Apache 2.0](LICENSE-APACHE)
 
 An assistant skill for turning statistical questions into executed R analysis,
 interpretable estimates, uncertainty, diagnostics, plots and reproducible code.
@@ -29,7 +29,7 @@ packages and assumptions still need checking for each task.
 In Codex, a short installation route is:
 
 ```text
-$skill-installer install https://github.com/Vadale/r-statistical-analysis/tree/main/integrations/skills/r-statistical-analysis
+$skill-installer install https://github.com/Vadale/r-statistical-analysis-skill/tree/main/integrations/skills/r-statistical-analysis
 ```
 
 Or use the local helper below. Codex supports `~/.agents/skills/` for user skills;
@@ -139,11 +139,11 @@ This is not the relm package and implies no R Foundation or upstream endorsement
 
 ## Feedback and related skills
 
-[Open an issue](https://github.com/Vadale/r-statistical-analysis/issues) with a
+[Open an issue](https://github.com/Vadale/r-statistical-analysis-skill/issues) with a
 small synthetic reproduction, expected behavior and your R/session details.
 Do not attach confidential datasets or personal assistant conversations.
 [Contribution guidance](CONTRIBUTING.md).
 
-Related: [Sec-graph triage](https://github.com/Vadale/sec-graph-triage) for reviewing
-security-finding evidence; [AI Project Coach](https://github.com/Vadale/ai-project-coach)
+Related: [Sec-graph triage](https://github.com/Vadale/sec-graph-triage-skill) for reviewing
+security-finding evidence; [AI Project Coach](https://github.com/Vadale/ai-project-coach-skill)
 for improving how you work with AI. Each can be used independently.
