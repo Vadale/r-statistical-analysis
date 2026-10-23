@@ -1,5 +1,9 @@
 # R Statistical Analysis
 
+![R Statistical Analysis: statistical questions become estimates, uncertainty, diagnostics, plots and reproducible code.](assets/hero.svg)
+
+[Checks](https://github.com/Vadale/r-statistical-analysis/actions) · [Download](https://github.com/Vadale/r-statistical-analysis/releases) · [MIT](LICENSE-MIT) / [Apache 2.0](LICENSE-APACHE)
+
 An assistant skill for turning statistical questions into executed R analysis,
 interpretable estimates, uncertainty, diagnostics, plots and reproducible code.
 It combines concise instructions with small R execution helpers. Ordinary work
@@ -13,6 +17,24 @@ returns inspectable artifacts. Explicit language or notebook requirements take
 precedence. This skill does not force R into an existing Python workflow.
 
 ## Requirements and installation
+
+For researchers, analysts and developers who need more than generated R code:
+an executed analysis, an interpretable effect with uncertainty, and the artifacts
+needed to inspect or rerun it. Suitable questions include group comparisons,
+regression, repeated measures, survival and other statistical work; method-specific
+packages and assumptions still need checking for each task.
+
+![Workflow: frame the question and design; analyse with R and inspect uncertainty and diagnostics; deliver interpretable results and rerunnable artifacts.](assets/workflow.svg)
+
+In Codex, a short installation route is:
+
+```text
+$skill-installer install https://github.com/Vadale/r-statistical-analysis/tree/main/integrations/skills/r-statistical-analysis
+```
+
+Or use the local helper below. Codex supports `~/.agents/skills/` for user skills;
+confirm discovery and restart if necessary. See the
+[official skill guide](https://developers.openai.com/codex/skills).
 
 Use an authorized assistant with file/execution tools and an existing R runtime.
 Python 3.9+ is needed for the optional installation helper and tests; R analyses
@@ -36,6 +58,15 @@ are host/model behavior, not a guarantee supplied by these files.
 
 ## Run the small demonstration
 
+After installation, try a task with explicit design and outputs:
+
+```text
+Use $r-statistical-analysis on this CSV. Each row is a different person.
+Compare groups A and B on outcome, report the difference and a 95% interval,
+check relevant assumptions, and save a labelled plot plus code I can rerun.
+Ask about design ambiguities before choosing the model.
+```
+
 From the repository root, choose a new output directory:
 
 ```sh
@@ -49,6 +80,12 @@ diagnostics, retained warnings, code, input fingerprints and session information
 It uses a headless PDF device and explicit complete-case counts. Its tiny dataset
 is for demonstrating the delivery contract, not an empirical study or a template
 for paired, longitudinal or causal questions.
+
+![Actual plot from the included synthetic independent-group demonstration: a mean difference and 95% Welch interval.](assets/example-group-difference.png)
+
+This PNG visualizes the estimate and interval computed by the included example.
+It is a small synthetic delivery demonstration, not a research result or evidence
+of a causal effect.
 
 ## What v0.2 adds
 
@@ -99,3 +136,14 @@ planning and evaluation answers are not part of that payload.
 Derived from the [R-ebirth companion skill](https://github.com/Vadale/R-ebirth).
 See [NOTICE](NOTICE), [MIT license](LICENSE-MIT) and [Apache license](LICENSE-APACHE).
 This is not the relm package and implies no R Foundation or upstream endorsement.
+
+## Feedback and related skills
+
+[Open an issue](https://github.com/Vadale/r-statistical-analysis/issues) with a
+small synthetic reproduction, expected behavior and your R/session details.
+Do not attach confidential datasets or personal assistant conversations.
+[Contribution guidance](CONTRIBUTING.md).
+
+Related: [Sec-graph triage](https://github.com/Vadale/sec-graph-triage) for reviewing
+security-finding evidence; [AI Project Coach](https://github.com/Vadale/ai-project-coach)
+for improving how you work with AI. Each can be used independently.
