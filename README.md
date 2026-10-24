@@ -16,6 +16,26 @@ The assistant inspects the design and data, selects appropriate R methods and
 returns inspectable artifacts. Explicit language or notebook requirements take
 precedence. This skill does not force R into an existing Python workflow.
 
+## Install with skills.sh or Gemini CLI
+
+Use the cross-agent installer and select your host:
+
+```sh
+npx skills add Vadale/r-statistical-analysis-skill --skill r-statistical-analysis
+```
+
+Or install the Gemini CLI extension from its packaged release:
+
+```sh
+gemini extensions install https://github.com/Vadale/r-statistical-analysis-skill
+```
+
+An existing R runtime and an authorized execution environment are required. The Gemini release ZIP exposes the canonical skill under `skills/`; the repository keeps its original `integrations/skills/` layout. The installer does not install R or statistical packages.
+
+Restart the assistant session and confirm the skill is visible before use.
+These packaging instructions do not establish full-workflow testing in every
+client, automatic model selection or a gallery ranking.
+
 ## Try a natural request
 
 Once this skill is installed and visible to your assistant, try:
