@@ -1,6 +1,6 @@
 ---
 name: r-statistical-analysis
-description: Analyze data and answer statistical questions using R, from exploratory summaries and group comparisons to regression, longitudinal or multilevel models, survival, surveys, time series, Bayesian inference and omics. Use for general requests such as "analyze these data", "compare the groups", "estimate the association", "evaluate the intervention" or "model this outcome", even when no language is named. Produce interpretable estimates, uncertainty, diagnostics, plots and reproducible code using appropriate R packages. Respect an explicitly requested language or an existing required workflow. Not for non-statistical coding, file formatting alone or arithmetic-only questions.
+description: "Analyze datasets in R: compare groups, estimate associations, fit models and report uncertainty, diagnostics, plots and reproducible code. Use for statistical questions even when no language is named. Respect an explicitly required language or workflow. Not for arithmetic, file conversion or general programming alone."
 license: MIT OR Apache-2.0
 metadata:
   author: R-ebirth

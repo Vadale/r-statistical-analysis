@@ -16,6 +16,18 @@ The assistant inspects the design and data, selects appropriate R methods and
 returns inspectable artifacts. Explicit language or notebook requirements take
 precedence. This skill does not force R into an existing Python workflow.
 
+## Try a natural request
+
+Once this skill is installed and visible to your assistant, try:
+
+> Compare groups A and B in this CSV. Each row is a different person; show the difference, uncertainty, a labelled plot and R code I can rerun.
+
+A design-aware analysis with estimates, uncertainty, diagnostics, a useful plot and reproducible R code; missing data or methodological gaps stay visible.
+
+See the [synthetic input/output example](examples/natural-request.md) for expected
+behavior and nearby tasks that need another workflow. Automatic selection
+depends on your host and model; explicit invocation remains available.
+
 ## Requirements and installation
 
 For researchers, analysts and developers who need more than generated R code:
