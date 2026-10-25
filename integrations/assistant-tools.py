@@ -28,6 +28,7 @@ RECEIPT_NAME = ".installation-receipt.json"
 PAYLOAD_FILES = (
     "LICENSE-APACHE", "LICENSE-MIT", "SKILL.md", "agents/openai.yaml",
     "references/method-routing.md", "references/output-contract.md",
+    "references/worked-example.md",
     "references/statistical-checks.md", "scripts/inspect-environment.R",
     "scripts/run-analysis.R", "scripts/example-independent.R", "assets/independent.csv",
 )

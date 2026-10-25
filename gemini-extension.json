@@ -1,5 +1,5 @@
 {
   "name": "r-statistical-analysis-skill",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Statistical analysis in R with estimates, uncertainty, diagnostics and reproducible artifacts. Requires an existing R runtime."
 }

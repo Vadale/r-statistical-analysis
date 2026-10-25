@@ -16,6 +16,28 @@ The assistant inspects the design and data, selects appropriate R methods and
 returns inspectable artifacts. Explicit language or notebook requirements take
 precedence. This skill does not force R into an existing Python workflow.
 
+## Requirements at a glance
+
+| Component | Required for | What to prepare |
+| --- | --- | --- |
+| Assistant with skill/file access | Assisted analysis | A supported host, the complete skill folder and access to the files you select |
+| Authorized R execution | Computing results | An existing R installation with `Rscript`, or a working R session accessible to the assistant |
+| R packages | Chosen statistical method | The demo uses only packages supplied with R; specialist analyses may need additional approved packages |
+| New writable output directory | Bundled file runner | A new destination; existing results are refused rather than overwritten |
+| Python 3.9+ | Optional local install/verify/bundle helper and public Python tests | Standard library for the helper; it is unnecessary for the R demo or ordinary skill loading |
+| Git, Node/npm or a host CLI | Only the installation route you choose | Follow that host's own requirements; these are not statistical runtime dependencies |
+
+The verified local analysis environment is **Linux x86_64, R 4.6.1**. Other R
+versions/platforms are not certified by that check; run the small demo in your
+actual environment first. The skill installer does not install R or statistical
+packages. Without execution access, an assistant can plan an analysis or write
+code, but cannot honestly return executed results.
+
+Ordinary statistics needs **no relm, local model, GPU, MCP server or separate
+model API key**. Existing host/model access is still your choice. Data access and
+permission to send excerpts or plots to a hosted assistant must be established
+before using confidential inputs.
+
 ## Install with skills.sh or Gemini CLI
 
 Use the cross-agent installer and select your host:
@@ -128,34 +150,49 @@ are host/model behavior, not a guarantee supplied by these files.
 
 ## Run the small demonstration
 
-After installation, try a task with explicit design and outputs:
+The bundled [walkthrough](integrations/skills/r-statistical-analysis/references/worked-example.md)
+contains the six-row synthetic CSV, exact commands, an assistant request, expected
+numbers, every output file, log/status checks and rerun instructions. It is also
+included inside installed skill folders and the release archive.
 
-```text
-Use $r-statistical-analysis on this CSV. Each row is a different person.
-Compare groups A and B on outcome, report the difference and a 95% interval,
-check relevant assumptions, and save a labelled plot plus code I can rerun.
-Ask about design ambiguities before choosing the model.
-```
-
-From the repository root, choose a new output directory:
+From a reviewed checkout, use Bash/Zsh and a **new** demo directory. If `mkdir`
+fails because it exists, stop and choose another name in the following commands.
 
 ```sh
-Rscript --vanilla integrations/skills/r-statistical-analysis/scripts/run-analysis.R \
-  integrations/skills/r-statistical-analysis/scripts/example-independent.R \
-  demo-output integrations/skills/r-statistical-analysis/assets/independent.csv
+SKILL="integrations/skills/r-statistical-analysis"
+Rscript --vanilla "$SKILL/scripts/inspect-environment.R" stats
+mkdir "r-skill-demo"
 ```
 
-The synthetic independent-group example produces a labelled PDF, estimates,
-diagnostics, retained warnings, code, input fingerprints and session information.
-It uses a headless PDF device and explicit complete-case counts. Its tiny dataset
-is for demonstrating the delivery contract, not an empirical study or a template
-for paired, longitudinal or causal questions.
+```sh
+Rscript --vanilla "$SKILL/scripts/run-analysis.R" \
+  "$SKILL/scripts/example-independent.R" \
+  "r-skill-demo/result" "$SKILL/assets/independent.csv" \
+  > "r-skill-demo/stdout.log" 2> "r-skill-demo/stderr.log"
+```
+
+Accept the run only after a successful process exit, `State: complete` in
+`result/status.dcf`, inspection of both logs and the actual PDF. Expected result:
+**B minus A = 3 points, 95% Welch interval 0.733042 to 5.266958**, with A: n=3,
+mean=2 and B: n=3, mean=5; six analysed observations, zero exclusions. This is a
+small synthetic observational comparison, not a causal finding. Its distribution
+and missingness assumptions are not established by a successful fit.
+
+The nine result files include the PDF, estimates, diagnostics, captured
+conditions, code, input fingerprints, session details and status. For an installed
+copy, set `SKILL` to its actual directory and use the same commands; no Python or
+repository helper is needed. For a repeat, choose a new result/log destination.
+The [walkthrough](integrations/skills/r-statistical-analysis/references/worked-example.md)
+explains what each file does and how an assistant should interpret it.
 
 ![Actual plot from the included synthetic independent-group demonstration: a mean difference and 95% Welch interval.](assets/example-group-difference.png)
 
-This PNG visualizes the estimate and interval computed by the included example.
-It is a small synthetic delivery demonstration, not a research result or evidence
-of a causal effect.
+## Release 0.2.2
+
+This release consolidates requirements, the installed worked example and existing
+cross-agent distribution. Skill/plugin/Gemini metadata identifies 0.2.2; the
+unchanged runner still identifies its implementation as 0.2.0. Statistical code,
+data and inference behavior are unchanged.
 
 ## What v0.2 adds
 
@@ -187,11 +224,26 @@ The added tests include independent numerical references, missing denominators,
 retained errors, one-way compatibility and negative artifact cases. Finite-value
 checks reject NaN/Inf rather than accepting a vacuous tolerance comparison.
 Numerical reproducibility is separate from byte-identical PDFs across systems.
-The current development target is Linux x86_64/R 4.6.1; other runtimes, clients,
-advanced methods and native discovery need their own evidence. Internal trials
+The verified local analysis target is Linux x86_64/R 4.6.1. Pi, DSH and Hermes
+native discovery/body loading was checked separately; those checks do not
+establish a complete model-driven statistical workflow. Other runtimes/platforms
+and advanced methods need their own evidence. Internal trials
 are not customer validation or a statistical/security certification.
 
 ## Distribution and source
+
+The [v0.2.2 release](https://github.com/Vadale/r-statistical-analysis-skill/releases/tag/v0.2.2)
+has one generic `r-statistical-analysis-skill.zip` asset. Extract it into a new
+folder: the Gemini manifest and `skills/r-statistical-analysis/` are at its root,
+with the same canonical skill bytes and complete walkthrough as this repository.
+Run the walkthrough with `SKILL="skills/r-statistical-analysis"` from the extracted
+root. The optional Python helper and public tests remain in the GitHub source
+checkout; the archive needs neither. Pi Git installs use the repository's
+`package.json` mapping. Keep prior installations until the
+new complete folder is verified; never merge only selected new files into an old
+copy. Existing tags and archives remain available. This is a distribution archive,
+not a ChatGPT plugin submission.
+
 
 Create a new deterministic skill-only ZIP in an existing destination directory:
 

@@ -4,7 +4,7 @@ description: "Analyze datasets in R: compare groups, estimate associations, fit 
 license: MIT OR Apache-2.0
 metadata:
   author: R-ebirth
-  version: "0.2.0"
+  version: "0.2.2"
 ---
 
 # Statistical analysis with R
@@ -88,7 +88,9 @@ report them as not delivered. The runner checks declared files before completion
 compare the actual deliverables with the user's request and inspect their content.
 Use the contract's capability guard for analyses depending on this feature; verify
 the installed runner identity rather than assuming an older copy enforces it.
-A small independent-groups PDF example is in `scripts/example-independent.R`;
+For installation checks or a complete guided run, read
+[the worked example](references/worked-example.md). Its base-R code is in
+`scripts/example-independent.R`;
 use it only for its stated design/schema, not as a generic model for every task. The runner executes trusted analyst-authored R code; it is not a sandbox.
 For an existing notebook/session/report, preserve that workflow and provide the
 same essential evidence without forcing a new directory or boilerplate.
