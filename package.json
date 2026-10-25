@@ -1,0 +1,9 @@
+{
+  "name": "r-statistical-analysis-skill",
+  "private": true,
+  "pi": {
+    "skills": [
+      "./integrations/skills"
+    ]
+  }
+}
